@@ -1,10 +1,7 @@
 FROM node:20.15.0
 WORKDIR /app
 COPY . /app/
-RUN npm install
+RUN npm install 
+EXPOSE 8080
 
-RUN npm i -g serve
-
-EXPOSE 3000
-
-CMD [ "serve", "-s", "dist" ]
+CMD ["npm","start"]
