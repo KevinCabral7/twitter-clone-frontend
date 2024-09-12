@@ -1,8 +1,6 @@
 FROM node:20.15.0
 WORKDIR /app
-COPY ./package.json ./package.json
-COPY ./public ./public
-COPY ./src ./src
+COPY . /app/
 RUN npm install
 EXPOSE 3000
 
