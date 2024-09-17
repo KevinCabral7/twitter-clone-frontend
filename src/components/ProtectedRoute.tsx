@@ -2,10 +2,10 @@ import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import api from '../api';
 import { REFRESH_TOKEN, ACCESS_TOKEN } from '../constants';
-import { useState, useEffect, jsx } from 'react';
+import { useState, useEffect, JSX } from 'react';
 
 type Props = {
-    children?: jsx.element;
+    children?: JSX.Element;
 };
 
 function ProtectedRoute({ children }: Props) {

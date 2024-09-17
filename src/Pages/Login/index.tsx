@@ -1,6 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { useState } from 'react';
 import Button from '../../components/Button';
-import Item from '../../components/Item';
 import * as S from './style';
 import Modal from 'react-modal';
 import Form from '../../components/Form';

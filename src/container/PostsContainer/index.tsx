@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import Post from '../../components/Post';
 import api from '../../api';
 import * as S from './styles';

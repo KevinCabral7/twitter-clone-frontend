@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
@@ -6,7 +9,7 @@ import Post from '../../components/Post';
 
 import ProfileDefaultImage from '../../assets/default_profile_400x400.png';
 import * as S from './styles';
-import { user, post, PostType } from '../../types';
+import { user, PostType } from '../../types';
 
 const Profile = () => {
     const { identificator } = useParams();

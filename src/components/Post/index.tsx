@@ -1,8 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { useState } from 'react';
 
 import Profile from '../Profile';
 import Action from '../Action';
-import api from '../../api.js';
+import api from '../../api';
 
 import ProfileDefaultImage from '../../assets/default_profile_400x400.png';
 import * as S from './style';

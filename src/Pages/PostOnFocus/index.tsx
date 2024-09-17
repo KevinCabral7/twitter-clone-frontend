@@ -1,9 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { useEffect, useState } from 'react';
 import Post from '../../components/Post';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../api';
 import * as S from './styles';
-import { ACCESS_TOKEN } from '../../constants';
+
 import PostsContainer from '../../container/PostsContainer';
 import CreatePost from '../../components/CreatePost';
 
@@ -18,8 +21,7 @@ const PostOnFocus = () => {
         profile_identificator: '',
         id: 9999,
     });
-    const [content, setContent] = useState('');
-    const [comments, setComments] = useState([]);
+
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 

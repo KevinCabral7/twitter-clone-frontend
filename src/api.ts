@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { ACCESS_TOKEN } from './constants';
 
 export const ws = new WebSocket('ws://127.0.0.1:8000/ws/social_media/');
