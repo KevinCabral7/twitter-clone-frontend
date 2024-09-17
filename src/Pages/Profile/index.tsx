@@ -6,11 +6,12 @@ import Post from '../../components/Post';
 
 import ProfileDefaultImage from '../../assets/default_profile_400x400.png';
 import * as S from './styles';
+import { user, post, PostType } from '../../types';
 
 const Profile = () => {
     const { identificator } = useParams();
     const [posts, setPosts] = useState([]);
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState<user>([]);
     const [status, setStatus] = useState('api/user/posts');
 
     const navigate = useNavigate();
@@ -119,7 +120,7 @@ const Profile = () => {
                 </S.ProfileInfoContainer>{' '}
                 <S.ProfilePostsContainer>
                     <div>
-                        {posts.map((post) => (
+                        {posts.map((post: PostType) => (
                             <Post
                                 post={post}
                                 key={post.id}
