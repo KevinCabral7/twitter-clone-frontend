@@ -3,23 +3,25 @@
 
 import { ACCESS_TOKEN } from './constants';
 
-// export const ws = new WebSocket('ws://127.0.0.1:8000/ws/social_media/');
-// ws.onopen = () => {
-//     console.log('Connected to WebSocket');
-//     const token = localStorage.getItem(ACCESS_TOKEN);
-//     ws.send(
-//         JSON.stringify({
-//             action: 'auth',
-//             data: token,
-//         }),
-//     );
-// };
-// ws.onmessage = (event) => {
-//     const data = JSON.parse(event.data);
-//     console.log('Received data:', data);
-//     console.log(event);
-// };
-// ws.onclose = () => console.log('WebSocket disconnected');
+export const ws = new WebSocket(
+    'wss://twitter-clone-backend-production-c76e.up.railway.app/ws/social_media/',
+);
+ws.onopen = () => {
+    console.log('Connected to WebSocket');
+    const token = localStorage.getItem(ACCESS_TOKEN);
+    ws.send(
+        JSON.stringify({
+            action: 'auth',
+            data: token,
+        }),
+    );
+};
+ws.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    console.log('Received data:', data);
+    console.log(event);
+};
+ws.onclose = () => console.log('WebSocket disconnected');
 
 import axios from 'axios';
 
