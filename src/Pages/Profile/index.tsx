@@ -30,8 +30,7 @@ const Profile = () => {
         api.get(status)
             .then((res) => res.data)
             .then((data) => {
-                setPosts(data);
-                console.log(data);
+                setPosts(data);;
             })
             .catch((err) => alert(err));
     };

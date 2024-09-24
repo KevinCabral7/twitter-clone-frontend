@@ -24,10 +24,8 @@ const ProtectedRoute = ({ children }: Props) => {
             if (res.status === 200) {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 setIsAuthorized(true);
-                console.log('amendoa');
             } else {
                 setIsAuthorized(false);
-                console.log('buceta');
             }
         } catch (error) {
             console.log(error);

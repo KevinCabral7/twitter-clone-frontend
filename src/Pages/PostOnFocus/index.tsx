@@ -26,7 +26,6 @@ const PostOnFocus = () => {
     const navigate = useNavigate();
 
     const getPost = () => {
-        console.log(id);
         api.get(`api/post/view/${id}/`)
             .then((res) => res.data)
             .then((data) => {

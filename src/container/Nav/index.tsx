@@ -17,7 +17,6 @@ const Nav = () => {
 
     useEffect(() => {
         getUser();
-        console.log(user);
     }, []);
     const getUser = () => {
         api.get('/api/user/')

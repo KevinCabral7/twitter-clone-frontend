@@ -23,7 +23,6 @@ const PostsContainer = ({ url }: Props) => {
             .then((res) => res.data)
             .then((data) => {
                 setPosts(data);
-                console.log(data);
             })
             .catch((err) => alert(err));
     };
