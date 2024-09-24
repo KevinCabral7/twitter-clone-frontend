@@ -5,13 +5,15 @@ import { jwtDecode } from 'jwt-decode';
 import api from '../api';
 import { REFRESH_TOKEN, ACCESS_TOKEN } from '../constants';
 import { useState, useEffect } from 'react';
-
-function ProtectedRoute({ children }: Props) {
+type Props = {
+    children: JSX.Element;
+};
+const ProtectedRoute = ({ children }: Props) => {
     const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
         auth().catch(() => setIsAuthorized(false));
-    });
+    }, []);
 
     const refreshToken = async () => {
         const refreshToken = localStorage.getItem(REFRESH_TOKEN);
@@ -22,8 +24,10 @@ function ProtectedRoute({ children }: Props) {
             if (res.status === 200) {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 setIsAuthorized(true);
+                console.log('amendoa');
             } else {
                 setIsAuthorized(false);
+                console.log('buceta');
             }
         } catch (error) {
             console.log(error);
@@ -53,7 +57,7 @@ function ProtectedRoute({ children }: Props) {
         return <div>Loading...</div>;
     }
 
-    return isAuthorized ? children : <Navigate to="/login/" />;
-}
+    return isAuthorized ? children : <Navigate to="/" />;
+};
 
 export default ProtectedRoute;

@@ -84,48 +84,44 @@ const Form = ({ method, route }: Props) => {
         }
     };
     return (
-        <>
-            <S.FormContent>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                        placeholder="Celular, e-mail ou nome de usuário"
-                    />
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="senha"
-                    />
-                    {method === 'register' ? (
-                        <>
-                            <input
-                                type="text"
-                                id="identificator"
-                                value={identificator}
-                                onChange={(e) =>
-                                    setIdentificator(e.target.value)
-                                }
-                                placeholder="identificator"
-                            />
-                            <input
-                                type="file"
-                                onChange={handleFileChange}
-                                accept="image/*"
-                            />
-                        </>
-                    ) : (
-                        <div></div>
-                    )}
-                    <button type="submit">Avançar</button>
-                </form>
-            </S.FormContent>
-        </>
+        <S.FormContent>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    placeholder="Celular, e-mail ou nome de usuário"
+                />
+                <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="senha"
+                />
+                {method === 'register' ? (
+                    <>
+                        <input
+                            type="text"
+                            id="identificator"
+                            value={identificator}
+                            onChange={(e) => setIdentificator(e.target.value)}
+                            placeholder="identificator"
+                        />
+                        <input
+                            type="file"
+                            onChange={handleFileChange}
+                            accept="image/*"
+                        />
+                    </>
+                ) : (
+                    <div></div>
+                )}
+                <button type="submit">Avançar</button>
+            </form>
+        </S.FormContent>
     );
 };
 
