@@ -4,7 +4,7 @@
 import { ACCESS_TOKEN } from './constants';
 
 export const ws = new WebSocket(
-    'wss://twitter-clone-backend-production-c76e.up.railway.app/ws/social_media/',
+    'wss://twitter-clone-frontend-72xi.onrender.com/ws/social_media/',
 );
 ws.onopen = () => {
     console.log('Connected to WebSocket');
