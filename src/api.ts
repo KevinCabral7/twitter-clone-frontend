@@ -4,17 +4,19 @@
 import { ACCESS_TOKEN } from './constants';
 
 export const ws = new WebSocket(
-    'wss://twitter-clone-frontend-72xi.onrender.com/ws/social_media/',
+    'wss://twitter-clone-backend-jt57.onrender.com/ws/social_media/',
 );
 ws.onopen = () => {
     console.log('Connected to WebSocket');
     const token = localStorage.getItem(ACCESS_TOKEN);
-    ws.send(
-        JSON.stringify({
-            action: 'auth',
-            data: token,
-        }),
-    );
+    if (token) {
+        ws.send(
+            JSON.stringify({
+                action: 'auth',
+                data: token,
+            }),
+        );
+    }
 };
 ws.onmessage = (event) => {
     const data = JSON.parse(event.data);
