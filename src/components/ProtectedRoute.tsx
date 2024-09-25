@@ -55,7 +55,7 @@ const ProtectedRoute = ({ children }: Props) => {
         return <div>Loading...</div>;
     }
 
-    return isAuthorized ? children : <Navigate to="/" />;
+    return isAuthorized ? children : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;
