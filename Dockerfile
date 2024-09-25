@@ -8,6 +8,8 @@ COPY package.json package-lock.json tsconfig.json ./
 
 RUN npm install --silent
 
+RUN npm run build
+
 COPY . ./
 
 
