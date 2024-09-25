@@ -9,11 +9,11 @@ type Props = {
     children: JSX.Element;
 };
 const ProtectedRoute = ({ children }: Props) => {
-    const [isAuthorized, setIsAuthorized] = useState(false);
+    const [isAuthorized, setIsAuthorized] = useState(null);
 
     useEffect(() => {
         auth().catch(() => setIsAuthorized(false));
-    }, []);
+    }, [isAuthorized]);
 
     const refreshToken = async () => {
         const refreshToken = localStorage.getItem(REFRESH_TOKEN);

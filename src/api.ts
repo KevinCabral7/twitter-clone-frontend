@@ -2,6 +2,7 @@
 // @ts-nocheck
 
 import { ACCESS_TOKEN } from './constants';
+import axios from 'axios';
 
 export const ws = new WebSocket(
     'wss://twitter-clone-backend-jt57.onrender.com/ws/social_media/',
@@ -24,8 +25,6 @@ ws.onmessage = (event) => {
     console.log(event);
 };
 ws.onclose = () => console.log('WebSocket disconnected');
-
-import axios from 'axios';
 
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
