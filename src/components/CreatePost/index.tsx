@@ -8,18 +8,24 @@ import * as S from './styles';
 
 type Props = {
     id?: number;
+    onPostCreated?: () => void;
 };
 
-const CreatePost = ({ id }: Props) => {
+const CreatePost = ({ id, onPostCreated }: Props) => {
     const [content, setContent] = useState('');
     const createPost = (e) => {
         e.preventDefault();
         api.post('api/post/create', {
             content: content,
             parent: id,
-        });
-
-        setContent('');
+        })
+            .then(() => {
+                setContent('');
+                onPostCreated();
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     };
     return (
         <S.CreatePostContainer>

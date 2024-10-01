@@ -9,14 +9,15 @@ import { useNavigate } from 'react-router';
 import { Posts } from '../../types';
 type Props = {
     url: string;
+    refresh?: number;
 };
 
-const PostsContainer = ({ url }: Props) => {
+const PostsContainer = ({ url, refresh }: Props) => {
     const [posts, setPosts] = useState<Posts>([]);
     const navigate = useNavigate();
     useEffect(() => {
         getPosts();
-    }, [url]);
+    }, [url, refresh]);
 
     const getPosts = () => {
         api.get(`${url}`)
