@@ -5,7 +5,7 @@ import { ACCESS_TOKEN } from './constants';
 import axios from 'axios';
 
 export const ws = new WebSocket(
-    'wss://twitter-clone-backend-jt57.onrender.com/ws/social_media/',
+    'wss://kevincabral7.pythonanywhere.com/ws/social_media/',
 );
 ws.onopen = () => {
     console.log('Connected to WebSocket');
