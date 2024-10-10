@@ -55,7 +55,7 @@ const Post = ({ post, onClick }: Props) => {
                     }
                     name={post.profile_username}
                     id={post.profile_identificator}
-                    onClick={() => navigate(`/${user.profile_identificator}`)}
+                    onClick={() => navigate(`/${post.profile_identificator}`)}
                 />
                 <div>
                     <Action
