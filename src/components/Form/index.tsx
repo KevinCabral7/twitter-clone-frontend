@@ -29,7 +29,6 @@ const Form = ({ method, route }: Props) => {
 
         let imageUrl = '';
 
-        // Realizar upload da imagem se existir
         if (profileImage) {
             const storageRef = ref(
                 storage,
@@ -37,12 +36,10 @@ const Form = ({ method, route }: Props) => {
             );
             const uploadTask = uploadBytesResumable(storageRef, profileImage);
 
-            // Espera o upload ser concluído e obter a URL
             imageUrl = await new Promise<string>((resolve, reject) => {
                 uploadTask.on(
                     'state_changed',
                     (snapshot) => {
-                        // Opcional: Monitorar progresso do upload
                         const progress =
                             (snapshot.bytesTransferred / snapshot.totalBytes) *
                             100;
@@ -53,7 +50,6 @@ const Form = ({ method, route }: Props) => {
                         reject(error);
                     },
                     () => {
-                        // Após o upload, obter a URL do arquivo
                         getDownloadURL(uploadTask.snapshot.ref)
                             .then(resolve)
                             .catch(reject);
@@ -62,13 +58,12 @@ const Form = ({ method, route }: Props) => {
             });
         }
 
-        // Enviar os dados ao backend com a URL da imagem
         try {
             const response = await api.post(route, {
                 username,
                 password,
                 identificator,
-                profile_image: imageUrl, // Envia a URL da imagem obtida
+                profile_image: imageUrl,
             });
 
             if (method === 'login') {

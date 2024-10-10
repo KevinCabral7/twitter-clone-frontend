@@ -9,6 +9,7 @@ import api from '../../api';
 
 import ProfileDefaultImage from '../../assets/default_profile_400x400.png';
 import * as S from './style';
+import { useNavigate } from 'react-router';
 type Props = {
     post: {
         like: number[];
@@ -26,6 +27,7 @@ type Props = {
 const Post = ({ post, onClick }: Props) => {
     const [likes, setLikes] = useState<number[]>(post.like);
     const [repost, setRepost] = useState<number>(post.repost);
+    const navigate = useNavigate();
     const likePost = (id) => {
         api.post(`api/post/like/${id}`)
             .then((res) => setLikes(res.data))
@@ -53,6 +55,7 @@ const Post = ({ post, onClick }: Props) => {
                     }
                     name={post.profile_username}
                     id={post.profile_identificator}
+                    onClick={() => navigate(`/${user.profile_identificator}`)}
                 />
                 <div>
                     <Action
