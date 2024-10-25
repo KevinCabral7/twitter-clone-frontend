@@ -10,6 +10,7 @@ export const ProfileContainer = styled.div`
         margin: 0 12px 0 0;
         display: block;
         object-fit: cover;
+        height: 40px;
         border-radius: 50%;
     }
 `;
